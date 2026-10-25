@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  color-scheme: dark;
+  --bg: #111014;
+  --panel: #17151c;
+  --text: #f0edf5;
+  --muted: #a39baa;
+  --subtle: #777080;
+  --line: #2c2734;
+  --accent: #b79aff;
+  --accent-strong: #9b73f5;
+  --accent-wash: rgba(183, 154, 255, .09);
+  --mono: "DM Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --sans: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+:root.light {
+  color-scheme: light;
+  --bg: #faf8fc;
+  --panel: #f1edf7;
+  --text: #211b2b;
+  --muted: #655b70;
+  --subtle: #80758b;
+  --line: #e1d9eb;
+  --accent: #7546ce;
+  --accent-strong: #6031b9;
+  --accent-wash: rgba(117, 70, 206, .08);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.7; transition: background .25s, color .25s; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.page-shell { width: min(760px, calc(100% - 44px)); margin: 0 auto; }
+.site-header { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--line); }
+.wordmark { font-family: var(--mono); font-weight: 500; font-size: 15px; letter-spacing: -.5px; }
+.dot, .purple { color: var(--accent); }
+nav { display: flex; gap: clamp(12px, 3vw, 25px); }
+nav a, .theme-toggle { color: var(--muted); font-family: var(--mono); font-size: 11px; transition: color .2s; }
+nav a:hover, .theme-toggle:hover, footer a:hover { color: var(--accent); }
+.theme-toggle { background: transparent; border: 1px solid var(--line); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 17px; }
+.section { padding: 66px 0; border-bottom: 1px solid var(--line); }
+.intro { padding-top: 95px; padding-bottom: 72px; }
+.eyebrow, .section-index, .setup-label, .small-note { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 20px; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+h1 { font-size: clamp(42px, 8vw, 64px); line-height: 1.1; letter-spacing: -3px; margin: 0 0 20px; font-weight: 800; }
+.intro-copy { color: var(--muted); font-size: 15px; max-width: 590px; }
+.intro-links { display: flex; gap: 22px; margin-top: 27px; }
+.text-link { color: var(--accent); font-family: var(--mono); font-size: 12px; border-bottom: 1px solid transparent; transition: border-color .2s, opacity .2s; }
+.text-link:hover { border-color: var(--accent); }
+.terminal-line { margin-top: 48px; padding: 12px 15px; border: 1px solid var(--line); background: var(--panel); border-radius: 7px; font: 12px var(--mono); color: var(--muted); width: fit-content; min-width: 220px; }
+.terminal-prompt { color: var(--accent); margin-right: 8px; }
+.cursor { display: inline-block; width: 7px; height: 13px; background: var(--accent); margin-left: 5px; vertical-align: -2px; animation: blink 1s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+.section-heading { display: grid; grid-template-columns: 35px 1fr; align-items: baseline; gap: 8px; margin-bottom: 25px; }
+.section-index { color: var(--accent); }
+h2 { font-size: 19px; letter-spacing: -.6px; margin: 0; font-weight: 700; }
+.section-body { padding-left: 43px; }
+.section-body p { margin: 0 0 16px; font-size: 14px; }
+.muted, .small-note { color: var(--muted); }
+.project-list { display: grid; gap: 27px; }
+.project { padding-bottom: 25px; border-bottom: 1px dashed var(--line); }
+.project:last-child { padding-bottom: 0; border-bottom: 0; }
+.project-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+h3 { margin: 0; font-size: 15px; }
+.project-status { color: var(--accent); background: var(--accent-wash); padding: 3px 8px; border-radius: 4px; font: 10px var(--mono); }
+.project p { color: var(--muted); margin-top: 9px; }
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 7px; padding: 0; margin: 14px 0; }
+.tags li { color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 3px 8px; font: 10px var(--mono); }
+.setup-grid { display: grid; gap: 0; margin: 22px 0 13px; border-top: 1px solid var(--line); }
+.setup-grid > div { display: grid; grid-template-columns: 130px 1fr; gap: 15px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 12px; }
+.setup-label { color: var(--accent); }
+.small-note { font-size: 10px !important; }
+footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 25px 0 38px; color: var(--subtle); font: 10px var(--mono); }
+footer a { color: var(--muted); }
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 560px) {
+  .page-shell { width: min(100% - 32px, 760px); }
+  .site-header { min-height: 68px; gap: 10px; }
+  nav { gap: 11px; }
+  nav a { font-size: 10px; }
+  .theme-toggle { flex: 0 0 31px; width: 31px; height: 31px; }
+  .intro { padding-top: 72px; }
+  h1 { letter-spacing: -2px; }
+  .section { padding: 48px 0; }
+  .section-body { padding-left: 0; }
+  .section-heading { grid-template-columns: 30px 1fr; }
+  .setup-grid > div { grid-template-columns: 105px 1fr; gap: 10px; }
+  footer { flex-direction: column; align-items: flex-start; }
+  .desktop-break { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+.contact-links { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+.contact-item { color: var(--muted); font: 12px var(--mono); }
+.contact-label { color: var(--accent); margin-right: 6px; }
